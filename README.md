@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
     <div class="w-full max-w-lg p-8 bg-white rounded-2xl shadow-xl space-y-6">
-        <h1 class="text-3xl font-bold text-center text-gray-800">営業指標計算ツール</h1>
+        <h1 class="text-3xl font-bold text-center text-gray-800">営報計算ツール</h1>
         
         <div class="space-y-4">
             <div>
