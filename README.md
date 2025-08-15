@@ -58,20 +58,21 @@
                 <!-- 営業指標の結果表示エリア -->
                 <div class="space-y-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
                     <h2 class="text-xl font-bold text-gray-800">営業指標 結果</h2>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-700 font-medium">客単価:</span>
-                        <span id="averagePrice" class="text-xl font-bold text-indigo-600"></span>
-                    </div>
-                    <hr class="border-gray-300">
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-700 font-medium">労時売り上げ:</span>
-                        <span id="salesPerHour" class="text-xl font-bold text-indigo-600"></span>
-                    </div>
-                    <hr class="border-gray-300">
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-700 font-medium">人時接客数:</span>
-                        <span id="customersPerHour" class="text-xl font-bold text-indigo-600"></span>
-                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+                <span class="text-gray-700 font-medium">客単価:</span>
+                <span id="averagePrice" class="text-xl font-bold text-indigo-600"></span>
+            </div>
+
+            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+                <span class="text-gray-700 font-medium">労時売り上げ:</span>
+                <span id="salesPerHour" class="text-xl font-bold text-indigo-600"></span>
+            </div>
+
+            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+                <span class="text-gray-700 font-medium">人時接客数:</span>
+                <span id="customersPerHour" class="text-xl font-bold text-indigo-600"></span>
+            </div>
+            
                 </div>
             </div>
 
