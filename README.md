@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -13,81 +14,127 @@
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="w-full max-w-lg p-8 bg-white rounded-2xl shadow-xl space-y-6">
+    <div class="w-full max-w-4xl p-8 bg-white rounded-2xl shadow-xl space-y-6">
         <h1 class="text-3xl font-bold text-center text-gray-800">営業報告計算ツール</h1>
         
-        <!-- 営業指標入力フォーム -->
-        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
-            <h2 class="text-xl font-bold text-gray-800">営業指標</h2>
-            <div>
-                <label for="netSales" class="block text-sm font-medium text-gray-700">Net売り上げ</label>
-                <input
-                    type="number"
-                    id="netSales"
-                    placeholder="例: 100000"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
+        <!-- 営業指標と収入のセクションを横並びに配置 -->
+        <div class="flex flex-col lg:flex-row gap-6">
+
+            <!-- 営業指標の入力と出力をまとめたセクション -->
+            <div class="flex-1 space-y-6">
+                <!-- 営業指標入力フォーム -->
+                <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
+                    <h2 class="text-xl font-bold text-gray-800">営業指標</h2>
+                    <div>
+                        <label for="netSales" class="block text-sm font-medium text-gray-700">Net売り上げ</label>
+                        <input
+                            type="number"
+                            id="netSales"
+                            placeholder="例: 100000"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="customers" class="block text-sm font-medium text-gray-700">組数</label>
+                        <input
+                            type="number"
+                            id="customers"
+                            placeholder="例: 10"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="workHours" class="block text-sm font-medium text-gray-700">労働時間数</label>
+                        <input
+                            type="number"
+                            id="workHours"
+                            placeholder="例: 8"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                </div>
+
+                <!-- 営業指標の結果表示エリア -->
+                <div class="space-y-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <h2 class="text-xl font-bold text-gray-800">営業指標 結果</h2>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">客単価:</span>
+                        <span id="averagePrice" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                    <hr class="border-gray-300">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">労時売り上げ:</span>
+                        <span id="salesPerHour" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                    <hr class="border-gray-300">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">人時接客数:</span>
+                        <span id="customersPerHour" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <label for="customers" class="block text-sm font-medium text-gray-700">組数</label>
-                <input
-                    type="number"
-                    id="customers"
-                    placeholder="例: 10"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
-            </div>
+            <!-- 収入の入力と出力をまとめたセクション -->
+            <div class="flex-1 space-y-6">
+                <!-- 収入入力フォーム -->
+                <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
+                    <h2 class="text-xl font-bold text-gray-800">収入</h2>
+                    <div>
+                        <label for="cash" class="block text-sm font-medium text-gray-700">現金</label>
+                        <input
+                            type="number"
+                            id="cash"
+                            placeholder="例: 50000"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="credit" class="block text-sm font-medium text-gray-700">クレジット</label>
+                        <input
+                            type="number"
+                            id="credit"
+                            placeholder="例: 30000"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="eMoney" class="block text-sm font-medium text-gray-700">電子マネー</label>
+                        <input
+                            type="number"
+                            id="eMoney"
+                            placeholder="例: 15000"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="prepayment" class="block text-sm font-medium text-gray-700">事前会計</label>
+                        <input
+                            type="number"
+                            id="prepayment"
+                            placeholder="例: 5000"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                </div>
 
-            <div>
-                <label for="workHours" class="block text-sm font-medium text-gray-700">労働時間数</label>
-                <input
-                    type="number"
-                    id="workHours"
-                    placeholder="例: 8"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
-            </div>
-        </div>
-
-        <!-- 収入入力フォーム -->
-        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
-            <h2 class="text-xl font-bold text-gray-800">収入</h2>
-            <div>
-                <label for="cash" class="block text-sm font-medium text-gray-700">現金</label>
-                <input
-                    type="number"
-                    id="cash"
-                    placeholder="例: 50000"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
-            </div>
-            <div>
-                <label for="credit" class="block text-sm font-medium text-gray-700">クレジット</label>
-                <input
-                    type="number"
-                    id="credit"
-                    placeholder="例: 30000"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
-            </div>
-            <div>
-                <label for="eMoney" class="block text-sm font-medium text-gray-700">電子マネー</label>
-                <input
-                    type="number"
-                    id="eMoney"
-                    placeholder="例: 15000"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
-            </div>
-            <div>
-                <label for="prepayment" class="block text-sm font-medium text-gray-700">事前会計</label>
-                <input
-                    type="number"
-                    id="prepayment"
-                    placeholder="例: 5000"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
-                >
+                <!-- 収入の結果表示エリア -->
+                <div class="space-y-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <h2 class="text-xl font-bold text-gray-800">収入 結果</h2>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">支払い小計（現金以外）:</span>
+                        <span id="subtotalPayment" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                    <hr class="border-gray-300">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">総売上:</span>
+                        <span id="totalSales" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -111,37 +158,6 @@
             </svg>
             計算
         </button>
-
-        <!-- 結果表示エリア -->
-        <div class="space-y-4 pt-4 border-t-2 border-gray-200">
-            <h2 class="text-xl font-bold text-gray-800">計算結果</h2>
-            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                <span class="text-gray-700 font-medium">客単価:</span>
-                <span id="averagePrice" class="text-xl font-bold text-indigo-600"></span>
-            </div>
-
-            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                <span class="text-gray-700 font-medium">労時売り上げ:</span>
-                <span id="salesPerHour" class="text-xl font-bold text-indigo-600"></span>
-            </div>
-
-            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                <span class="text-gray-700 font-medium">人時接客数:</span>
-                <span id="customersPerHour" class="text-xl font-bold text-indigo-600"></span>
-            </div>
-            
-            <hr class="border-gray-300">
-
-            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                <span class="text-gray-700 font-medium">支払い小計（現金以外）:</span>
-                <span id="subtotalPayment" class="text-xl font-bold text-indigo-600"></span>
-            </div>
-
-            <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                <span class="text-gray-700 font-medium">総売上:</span>
-                <span id="totalSales" class="text-xl font-bold text-indigo-600"></span>
-            </div>
-        </div>
     </div>
 
     <script>
