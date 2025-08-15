@@ -13,14 +13,14 @@
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="w-full max-w-4xl p-8 bg-white rounded-2xl shadow-xl space-y-6">
+    <div class="w-full max-w-6xl p-8 bg-white rounded-2xl shadow-xl space-y-6">
         <h1 class="text-3xl font-bold text-center text-gray-800">営業報告計算ツール</h1>
         
-        <!-- 営業指標と収入のセクションを横並びに配置 -->
-        <div class="flex flex-col lg:flex-row gap-6">
+        <!-- 営業指標、収入、在庫、使用量の4つのセクションをグリッドで配置 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-            <!-- 営業指標の入力と出力をまとめたセクション -->
-            <div class="flex-1 space-y-6">
+            <!-- 営業指標の入力と出力（左上） -->
+            <div class="space-y-6">
                 <!-- 営業指標入力フォーム -->
                 <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
                     <h2 class="text-xl font-bold text-gray-800">営業指標</h2>
@@ -75,8 +75,8 @@
                 </div>
             </div>
 
-            <!-- 収入の入力と出力をまとめたセクション -->
-            <div class="flex-1 space-y-6">
+            <!-- 収入の入力と出力（右上） -->
+            <div class="space-y-6">
                 <!-- 収入入力フォーム -->
                 <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
                     <h2 class="text-xl font-bold text-gray-800">収入</h2>
@@ -135,6 +135,118 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 在庫数の入力と出力（左下） -->
+            <div class="space-y-6">
+                <!-- 在庫数入力フォーム -->
+                <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
+                    <h2 class="text-xl font-bold text-gray-800">在庫数</h2>
+                    <div>
+                        <label for="cases" class="block text-sm font-medium text-gray-700">ケース数</label>
+                        <input
+                            type="number"
+                            id="cases"
+                            placeholder="例: 5"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="itemsPerCase" class="block text-sm font-medium text-gray-700">1ケースあたりの食数</label>
+                        <input
+                            type="number"
+                            id="itemsPerCase"
+                            placeholder="例: 12"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="bags" class="block text-sm font-medium text-gray-700">袋数</label>
+                        <input
+                            type="number"
+                            id="bags"
+                            placeholder="例: 2"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="looseItems" class="block text-sm font-medium text-gray-700">バラ</label>
+                        <input
+                            type="number"
+                            id="looseItems"
+                            placeholder="例: 3"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                </div>
+                
+                <!-- 在庫数の結果表示エリア -->
+                <div class="space-y-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <h2 class="text-xl font-bold text-gray-800">在庫数 結果</h2>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">在庫合計:</span>
+                        <span id="totalStock" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 使用量の入力と出力（右下） -->
+            <div class="space-y-6">
+                <!-- 使用量入力フォーム -->
+                <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 space-y-4">
+                    <h2 class="text-xl font-bold text-gray-800">使用量</h2>
+                    <div>
+                        <label for="beginningInventory" class="block text-sm font-medium text-gray-700">前残</label>
+                        <input
+                            type="number"
+                            id="beginningInventory"
+                            placeholder="例: 50"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="incomingStock" class="block text-sm font-medium text-gray-700">入荷</label>
+                        <input
+                            type="number"
+                            id="incomingStock"
+                            placeholder="例: 100"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="endingInventory" class="block text-sm font-medium text-gray-700">期末</label>
+                        <input
+                            type="number"
+                            id="endingInventory"
+                            placeholder="例: 45"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <label for="loss" class="block text-sm font-medium text-gray-700">ロス</label>
+                        <input
+                            type="number"
+                            id="loss"
+                            placeholder="例: 1"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+                        >
+                    </div>
+                </div>
+                
+                <!-- 使用量の結果表示エリア -->
+                <div class="space-y-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <h2 class="text-xl font-bold text-gray-800">使用量 結果</h2>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 font-medium">実使用量:</span>
+                        <span id="actualUsage" class="text-xl font-bold text-indigo-600"></span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <button
@@ -168,12 +280,22 @@
         const creditInput = document.getElementById('credit');
         const eMoneyInput = document.getElementById('eMoney');
         const prepaymentInput = document.getElementById('prepayment');
+        const casesInput = document.getElementById('cases');
+        const itemsPerCaseInput = document.getElementById('itemsPerCase');
+        const bagsInput = document.getElementById('bags');
+        const looseItemsInput = document.getElementById('looseItems');
+        const beginningInventoryInput = document.getElementById('beginningInventory');
+        const incomingStockInput = document.getElementById('incomingStock');
+        const endingInventoryInput = document.getElementById('endingInventory');
+        const lossInput = document.getElementById('loss');
         const calculateButton = document.getElementById('calculateBtn');
         const averagePriceSpan = document.getElementById('averagePrice');
         const salesPerHourSpan = document.getElementById('salesPerHour');
         const customersPerHourSpan = document.getElementById('customersPerHour');
         const subtotalPaymentSpan = document.getElementById('subtotalPayment');
         const totalSalesSpan = document.getElementById('totalSales');
+        const totalStockSpan = document.getElementById('totalStock');
+        const actualUsageSpan = document.getElementById('actualUsage');
 
         // 計算を実行する関数
         const calculateMetrics = () => {
@@ -187,28 +309,47 @@
             const credit = parseFloat(creditInput.value) || 0;
             const eMoney = parseFloat(eMoneyInput.value) || 0;
             const prepayment = parseFloat(prepaymentInput.value) || 0;
+            
+            // 在庫数の入力値を取得し、数値に変換
+            const cases = parseFloat(casesInput.value) || 0;
+            const itemsPerCase = parseFloat(itemsPerCaseInput.value) || 0;
+            const bags = parseFloat(bagsInput.value) || 0;
+            const looseItems = parseFloat(looseItemsInput.value) || 0;
+
+            // 使用量の入力値を取得し、数値に変換
+            const beginningInventory = parseFloat(beginningInventoryInput.value) || 0;
+            const incomingStock = parseFloat(incomingStockInput.value) || 0;
+            const endingInventory = parseFloat(endingInventoryInput.value) || 0;
+            const loss = parseFloat(lossInput.value) || 0;
 
             // 客単価を計算
-            const calculatedAveragePrice = customers !== 0 ? (netSales / customers).toFixed(2) : "0";
+            const calculatedAveragePrice = customers !== 0 ? (netSales / customers).toFixed(0) : "0";
             averagePriceSpan.textContent = calculatedAveragePrice;
 
             // 労時売り上げを計算
-            const calculatedSalesPerHour = workHours !== 0 ? (netSales / workHours).toFixed(2) : "0";
+            const calculatedSalesPerHour = workHours !== 0 ? (netSales / workHours).toFixed(0) : "0";
             salesPerHourSpan.textContent = calculatedSalesPerHour;
 
             // 人時接客数を計算
-            const calculatedCustomersPerHour = workHours !== 0 ? (customers / workHours).toFixed(2) : "0";
+            const calculatedCustomersPerHour = workHours !== 0 ? (customers / workHours).toFixed(0) : "0";
             customersPerHourSpan.textContent = calculatedCustomersPerHour;
             
-             // 支払い小計を計算
-            // 小数点以下を切り捨てて整数にする
+            // 支払い小計を計算
             const calculatedSubtotalPayment = Math.floor(credit + eMoney + prepayment);
             subtotalPaymentSpan.textContent = calculatedSubtotalPayment;
             
             // 総売上を計算
-            // 小数点以下を切り捨てて整数にする
             const calculatedTotalSales = Math.floor(cash + credit + eMoney + prepayment);
             totalSalesSpan.textContent = calculatedTotalSales;
+
+            // 在庫数を計算
+            // `bags`の係数が6であると仮定しています。もし違う場合は変更してください。
+            const calculatedTotalStock = Math.floor(cases * itemsPerCase + 6 * bags + looseItems);
+            totalStockSpan.textContent = calculatedTotalStock;
+
+            // 実使用量を計算
+            const calculatedActualUsage = Math.floor(beginningInventory + incomingStock - endingInventory - loss);
+            actualUsageSpan.textContent = calculatedActualUsage;
         };
 
         // ボタンにクリックイベントリスナーを追加
