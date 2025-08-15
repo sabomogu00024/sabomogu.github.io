@@ -13,7 +13,7 @@
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="w-full max-w-2xl p-8 bg-white rounded-2xl shadow-xl space-y-8">
+    <div class="w-full max-w-4xl p-8 bg-white rounded-2xl shadow-xl space-y-8">
         <h1 class="text-3xl font-bold text-center text-gray-800">営業指標計算ツール</h1>
 
         <!-- 営業指標セクション -->
@@ -83,9 +83,9 @@
             </div>
         </div>
 
-        <!-- 在庫セクション -->
+        <!-- 在庫・実使用量計算セクション -->
         <div class="space-y-4">
-            <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">在庫計算</h2>
+            <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">在庫・実使用量計算</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Mパティ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
@@ -93,10 +93,19 @@
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="mpCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="mpLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">前残: <input type="number" id="mpPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">入荷: <input type="number" id="mpArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">ロス: <input type="number" id="mpLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">在庫:</p>
-                        <p id="mpInventory" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="mpInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="mpUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Zパティ -->
@@ -105,10 +114,19 @@
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="zpCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="zpLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">前残: <input type="number" id="zpPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">入荷: <input type="number" id="zpArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">ロス: <input type="number" id="zpLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">在庫:</p>
-                        <p id="zpInventory" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="zpInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="zpUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Rパティ -->
@@ -117,10 +135,19 @@
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="rpCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="rpLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">前残: <input type="number" id="rpPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">入荷: <input type="number" id="rpArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">ロス: <input type="number" id="rpLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">在庫:</p>
-                        <p id="rpInventory" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="rpInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="rpUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Mバンズ -->
@@ -130,49 +157,83 @@
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="mbCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">袋数: <input type="number" id="mbBag" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="mbLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">前残: <input type="number" id="mbPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">入荷: <input type="number" id="mbArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">ロス: <input type="number" id="mbLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">在庫:</p>
-                        <p id="mbInventory" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="mbInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="mbUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Zバンズ -->
+                 <!-- Zバンズ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">Zバンズ</h3>
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="zbCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">袋数: <input type="number" id="zbBag" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="zbLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">前残: <input type="number" id="zbPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">入荷: <input type="number" id="zbArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">ロス: <input type="number" id="zbLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">在庫:</p>
-                        <p id="zbInventory" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="zbInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="zbUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
                 <!-- クープバンズ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">クープバンズ</h3>
                     <div class="flex-grow space-y-2">
+                        <label class="text-sm text-gray-700">ケース数: <input type="number" id="qbCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">バラ: <input type="number" id="qbLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">前残: <input type="number" id="qbPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">入荷: <input type="number" id="qbArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">ロス: <input type="number" id="qbLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">実使用量:</p>
-                        <p id="qbUsage" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="qbInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="qbUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
                 <!-- マフィンバンズ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">マフィンバンズ</h3>
                     <div class="flex-grow space-y-2">
+                        <label class="text-sm text-gray-700">ケース数: <input type="number" id="mCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">バラ: <input type="number" id="mLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">前残: <input type="number" id="mPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">入荷: <input type="number" id="mArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">ロス: <input type="number" id="mLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
-                    <div class="mt-4 pt-2 border-t">
-                        <p class="text-xs font-medium text-gray-500">実使用量:</p>
-                        <p id="mUsage" class="text-base font-bold text-gray-800">-</p>
+                    <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">在庫:</p>
+                            <p id="mInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">実使用量:</p>
+                            <p id="mUsage" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -222,10 +283,9 @@
             const zbCaseInput = document.getElementById('zbCase');
             const zbBagInput = document.getElementById('zbBag');
             const zbLooseInput = document.getElementById('zbLoose');
-            const qbBagInput = document.getElementById('qbBag');
+            const qbCaseInput = document.getElementById('qbCase');
             const qbLooseInput = document.getElementById('qbLoose');
             const mCaseInput = document.getElementById('mCase');
-            const mBagInput = document.getElementById('mBag');
             const mLooseInput = document.getElementById('mLoose');
             const mpPrevInput = document.getElementById('mpPrev');
             const mpArrivalInput = document.getElementById('mpArrival');
@@ -256,7 +316,7 @@
                 mpCaseInput, mpLooseInput, zpCaseInput, zpLooseInput,
                 rpCaseInput, rpLooseInput, mbCaseInput, mbBagInput,
                 mbLooseInput, zbCaseInput, zbBagInput, zbLooseInput,
-                qbBagInput, qbLooseInput, mCaseInput, mBagInput, mLooseInput,
+                qbCaseInput, qbLooseInput, mCaseInput, mLooseInput,
                 mpPrevInput, mpArrivalInput, mpLossInput, zpPrevInput,
                 zpArrivalInput, zpLossInput, rpPrevInput, rpArrivalInput,
                 rpLossInput, mbPrevInput, mbArrivalInput, mbLossInput,
@@ -312,18 +372,17 @@
                 const zbInventory = Math.floor(zbCase * 24 + zbBag * 6 + zbLoose);
                 zbInventorySpan.textContent = zbInventory;
                 
-                const qbBag = parseFloat(qbBagInput.value) || 0;
+                const qbCase = parseFloat(qbCaseInput.value) || 0;
                 const qbLoose = parseFloat(qbLooseInput.value) || 0;
-                const qbInventory = Math.floor(qbBag * 12 + qbLoose);
+                const qbInventory = Math.floor(qbCase * 12 + qbLoose);
                 qbInventorySpan.textContent = qbInventory;
                 
                 const mCase = parseFloat(mCaseInput.value) || 0;
-                const mBag = parseFloat(mBagInput.value) || 0;
                 const mLoose = parseFloat(mLooseInput.value) || 0;
-                const mInventory = Math.floor(mCase * 72 + mBag * 6 + mLoose);
+                const mInventory = Math.floor(mCase * 72 + mLoose);
                 mInventorySpan.textContent = mInventory;
 
-                // 管理指数
+                // 実使用量計算
                 const mpPrev = parseFloat(mpPrevInput.value) || 0;
                 const mpArrival = parseFloat(mpArrivalInput.value) || 0;
                 const mpLoss = parseFloat(mpLossInput.value) || 0;
