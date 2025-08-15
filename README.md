@@ -200,12 +200,14 @@
             const calculatedCustomersPerHour = workHours !== 0 ? (customers / workHours).toFixed(2) : "0";
             customersPerHourSpan.textContent = calculatedCustomersPerHour;
             
-            // 支払い小計を計算
-            const calculatedSubtotalPayment = (credit + eMoney + prepayment).toFixed(2);
+             // 支払い小計を計算
+            // 小数点以下を切り捨てて整数にする
+            const calculatedSubtotalPayment = Math.floor(credit + eMoney + prepayment);
             subtotalPaymentSpan.textContent = calculatedSubtotalPayment;
             
             // 総売上を計算
-            const calculatedTotalSales = (cash + credit + eMoney + prepayment).toFixed(2);
+            // 小数点以下を切り捨てて整数にする
+            const calculatedTotalSales = Math.floor(cash + credit + eMoney + prepayment);
             totalSalesSpan.textContent = calculatedTotalSales;
         };
 
