@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -20,33 +19,37 @@
         <!-- 営業指標セクション -->
         <div class="space-y-4">
             <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">営業指標</h2>
+            <!-- 入力フォーム -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Net売り上げ -->
                 <div class="flex flex-col space-y-1">
                     <label for="netSales" class="text-sm font-medium text-gray-700">Net売り上げ</label>
                     <input type="number" id="netSales" placeholder="例: 100000" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    <div class="bg-gray-100 p-2 rounded-md mt-2">
-                        <p class="text-xs font-medium text-gray-500">客単価</p>
-                        <p id="averagePrice" class="text-base font-bold text-gray-800">-</p>
-                    </div>
                 </div>
                 <!-- 組数 -->
                 <div class="flex flex-col space-y-1">
                     <label for="customers" class="text-sm font-medium text-gray-700">組数</label>
                     <input type="number" id="customers" placeholder="例: 50" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    <div class="bg-gray-100 p-2 rounded-md mt-2">
-                        <p class="text-xs font-medium text-gray-500">労時売り上げ</p>
-                        <p id="salesPerHour" class="text-base font-bold text-gray-800">-</p>
-                    </div>
                 </div>
                 <!-- 労働時間数 -->
                 <div class="flex flex-col space-y-1">
                     <label for="workHours" class="text-sm font-medium text-gray-700">労働時間数</label>
                     <input type="number" id="workHours" placeholder="例: 8" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    <div class="bg-gray-100 p-2 rounded-md mt-2">
-                        <p class="text-xs font-medium text-gray-500">人時接客数</p>
-                        <p id="customersPerHour" class="text-base font-bold text-gray-800">-</p>
-                    </div>
+                </div>
+            </div>
+            <!-- 出力フォーム -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                    <p class="text-sm font-medium text-gray-500">客単価</p>
+                    <p id="averagePrice" class="text-2xl font-bold text-gray-800">-</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                    <p class="text-sm font-medium text-gray-500">労時売り上げ</p>
+                    <p id="salesPerHour" class="text-2xl font-bold text-gray-800">-</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                    <p class="text-sm font-medium text-gray-500">人時接客数</p>
+                    <p id="customersPerHour" class="text-2xl font-bold text-gray-800">-</p>
                 </div>
             </div>
         </div>
@@ -453,9 +456,9 @@
                 // クープバンズ
                 const qbBag = parseFloat(qbBagInput.value) || 0;
                 const qbLoose = parseFloat(qbLooseInput.value) || 0;
-                // クープバンズのケース在庫は袋数から計算
+                // クープバンズのケース在庫は袋数 * 12 に修正
                 const qbCaseInventory = Math.floor(qbBag * 12);
-                const qbInventory = Math.floor(qbCaseInventory + qbLoose);
+                const qbInventory = Math.floor(qbBag * 12 + qbLoose); // 在庫の計算も「袋数 * 12 + バラ」に修正
                 qbCaseInventorySpan.textContent = qbCaseInventory;
                 qbInventorySpan.textContent = qbInventory;
                 const qbPrev = parseFloat(qbPrevInput.value) || 0;
@@ -488,3 +491,4 @@
     </script>
 </body>
 </html>
+<最終更新　2025/08/16>
