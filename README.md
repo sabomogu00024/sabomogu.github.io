@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -99,6 +100,10 @@
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
                         <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="mpCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="mpInventory" class="text-base font-bold text-gray-800">-</p>
                         </div>
@@ -120,6 +125,10 @@
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
                         <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="zpCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="zpInventory" class="text-base font-bold text-gray-800">-</p>
                         </div>
@@ -140,6 +149,10 @@
                         <label class="text-sm text-gray-700">ロス: <input type="number" id="rpLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="rpCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                         <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="rpInventory" class="text-base font-bold text-gray-800">-</p>
@@ -163,6 +176,10 @@
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
                         <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="mbCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="mbInventory" class="text-base font-bold text-gray-800">-</p>
                         </div>
@@ -185,6 +202,10 @@
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
                         <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="zbCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
+                        <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="zbInventory" class="text-base font-bold text-gray-800">-</p>
                         </div>
@@ -198,13 +219,17 @@
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">クープバンズ</h3>
                     <div class="flex-grow space-y-2">
-                        <label class="text-sm text-gray-700">ケース数: <input type="number" id="qbCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">袋数: <input type="number" id="qbBag" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="qbLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">前残: <input type="number" id="qbPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">入荷: <input type="number" id="qbArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">ロス: <input type="number" id="qbLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="qbCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                         <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="qbInventory" class="text-base font-bold text-gray-800">-</p>
@@ -220,12 +245,17 @@
                     <h3 class="text-lg font-medium text-gray-700">マフィンバンズ</h3>
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="mCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
+                        <label class="text-sm text-gray-700">袋数: <input type="number" id="mBag" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">バラ: <input type="number" id="mLoose" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">前残: <input type="number" id="mPrev" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">入荷: <input type="number" id="mArrival" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                         <label class="text-sm text-gray-700">ロス: <input type="number" id="mLoss" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
                     </div>
                     <div class="mt-4 pt-2 border-t space-y-2">
+                        <div>
+                            <p class="text-xs font-medium text-gray-500">ケース在庫:</p>
+                            <p id="mCaseInventory" class="text-base font-bold text-gray-800">-</p>
+                        </div>
                         <div>
                             <p class="text-xs font-medium text-gray-500">在庫:</p>
                             <p id="mInventory" class="text-base font-bold text-gray-800">-</p>
@@ -248,19 +278,26 @@
             const customersPerHourSpan = document.getElementById('customersPerHour');
             const subtotalPaymentSpan = document.getElementById('subtotalPayment');
             const totalSalesSpan = document.getElementById('totalSales');
+            const mpCaseInventorySpan = document.getElementById('mpCaseInventory');
             const mpInventorySpan = document.getElementById('mpInventory');
-            const zpInventorySpan = document.getElementById('zpInventory');
-            const rpInventorySpan = document.getElementById('rpInventory');
-            const mbInventorySpan = document.getElementById('mbInventory');
-            const zbInventorySpan = document.getElementById('zbInventory');
-            const qbInventorySpan = document.getElementById('qbInventory');
-            const mInventorySpan = document.getElementById('mInventory');
             const mpUsageSpan = document.getElementById('mpUsage');
+            const zpCaseInventorySpan = document.getElementById('zpCaseInventory');
+            const zpInventorySpan = document.getElementById('zpInventory');
             const zpUsageSpan = document.getElementById('zpUsage');
+            const rpCaseInventorySpan = document.getElementById('rpCaseInventory');
+            const rpInventorySpan = document.getElementById('rpInventory');
             const rpUsageSpan = document.getElementById('rpUsage');
+            const mbCaseInventorySpan = document.getElementById('mbCaseInventory');
+            const mbInventorySpan = document.getElementById('mbInventory');
             const mbUsageSpan = document.getElementById('mbUsage');
+            const zbCaseInventorySpan = document.getElementById('zbCaseInventory');
+            const zbInventorySpan = document.getElementById('zbInventory');
             const zbUsageSpan = document.getElementById('zbUsage');
+            const qbCaseInventorySpan = document.getElementById('qbCaseInventory');
+            const qbInventorySpan = document.getElementById('qbInventory');
             const qbUsageSpan = document.getElementById('qbUsage');
+            const mCaseInventorySpan = document.getElementById('mCaseInventory');
+            const mInventorySpan = document.getElementById('mInventory');
             const mUsageSpan = document.getElementById('mUsage');
 
             // 入力要素
@@ -271,40 +308,48 @@
             const creditInput = document.getElementById('credit');
             const eMoneyInput = document.getElementById('eMoney');
             const prepaymentInput = document.getElementById('prepayment');
+            
             const mpCaseInput = document.getElementById('mpCase');
             const mpLooseInput = document.getElementById('mpLoose');
-            const zpCaseInput = document.getElementById('zpCase');
-            const zpLooseInput = document.getElementById('zpLoose');
-            const rpCaseInput = document.getElementById('rpCase');
-            const rpLooseInput = document.getElementById('rpLoose');
-            const mbCaseInput = document.getElementById('mbCase');
-            const mbBagInput = document.getElementById('mbBag');
-            const mbLooseInput = document.getElementById('mbLoose');
-            const zbCaseInput = document.getElementById('zbCase');
-            const zbBagInput = document.getElementById('zbBag');
-            const zbLooseInput = document.getElementById('zbLoose');
-            const qbCaseInput = document.getElementById('qbCase');
-            const qbLooseInput = document.getElementById('qbLoose');
-            const mCaseInput = document.getElementById('mCase');
-            const mLooseInput = document.getElementById('mLoose');
             const mpPrevInput = document.getElementById('mpPrev');
             const mpArrivalInput = document.getElementById('mpArrival');
             const mpLossInput = document.getElementById('mpLoss');
+
+            const zpCaseInput = document.getElementById('zpCase');
+            const zpLooseInput = document.getElementById('zpLoose');
             const zpPrevInput = document.getElementById('zpPrev');
             const zpArrivalInput = document.getElementById('zpArrival');
             const zpLossInput = document.getElementById('zpLoss');
+
+            const rpCaseInput = document.getElementById('rpCase');
+            const rpLooseInput = document.getElementById('rpLoose');
             const rpPrevInput = document.getElementById('rpPrev');
             const rpArrivalInput = document.getElementById('rpArrival');
             const rpLossInput = document.getElementById('rpLoss');
+
+            const mbCaseInput = document.getElementById('mbCase');
+            const mbBagInput = document.getElementById('mbBag');
+            const mbLooseInput = document.getElementById('mbLoose');
             const mbPrevInput = document.getElementById('mbPrev');
             const mbArrivalInput = document.getElementById('mbArrival');
             const mbLossInput = document.getElementById('mbLoss');
+
+            const zbCaseInput = document.getElementById('zbCase');
+            const zbBagInput = document.getElementById('zbBag');
+            const zbLooseInput = document.getElementById('zbLoose');
             const zbPrevInput = document.getElementById('zbPrev');
             const zbArrivalInput = document.getElementById('zbArrival');
             const zbLossInput = document.getElementById('zbLoss');
+
+            const qbBagInput = document.getElementById('qbBag');
+            const qbLooseInput = document.getElementById('qbLoose');
             const qbPrevInput = document.getElementById('qbPrev');
             const qbArrivalInput = document.getElementById('qbArrival');
             const qbLossInput = document.getElementById('qbLoss');
+
+            const mCaseInput = document.getElementById('mCase');
+            const mBagInput = document.getElementById('mBag');
+            const mLooseInput = document.getElementById('mLoose');
             const mPrevInput = document.getElementById('mPrev');
             const mArrivalInput = document.getElementById('mArrival');
             const mLossInput = document.getElementById('mLoss');
@@ -313,15 +358,13 @@
             const allInputs = [
                 netSalesInput, customersInput, workHoursInput,
                 cashInput, creditInput, eMoneyInput, prepaymentInput,
-                mpCaseInput, mpLooseInput, zpCaseInput, zpLooseInput,
-                rpCaseInput, rpLooseInput, mbCaseInput, mbBagInput,
-                mbLooseInput, zbCaseInput, zbBagInput, zbLooseInput,
-                qbCaseInput, qbLooseInput, mCaseInput, mLooseInput,
-                mpPrevInput, mpArrivalInput, mpLossInput, zpPrevInput,
-                zpArrivalInput, zpLossInput, rpPrevInput, rpArrivalInput,
-                rpLossInput, mbPrevInput, mbArrivalInput, mbLossInput,
-                zbPrevInput, zbArrivalInput, zbLossInput, qbPrevInput,
-                qbArrivalInput, qbLossInput, mPrevInput, mArrivalInput, mLossInput
+                mpCaseInput, mpLooseInput, mpPrevInput, mpArrivalInput, mpLossInput,
+                zpCaseInput, zpLooseInput, zpPrevInput, zpArrivalInput, zpLossInput,
+                rpCaseInput, rpLooseInput, rpPrevInput, rpArrivalInput, rpLossInput,
+                mbCaseInput, mbBagInput, mbLooseInput, mbPrevInput, mbArrivalInput, mbLossInput,
+                zbCaseInput, zbBagInput, zbLooseInput, zbPrevInput, zbArrivalInput, zbLossInput,
+                qbBagInput, qbLooseInput, qbPrevInput, qbArrivalInput, qbLossInput,
+                mCaseInput, mBagInput, mLooseInput, mPrevInput, mArrivalInput, mLossInput
             ];
 
             // 計算を実行し、結果を表示する関数
@@ -344,75 +387,90 @@
                 subtotalPaymentSpan.textContent = Math.floor(credit + eMoney + prepayment);
                 totalSalesSpan.textContent = Math.floor(cash + credit + eMoney + prepayment);
 
-                // 在庫計算
+                // 在庫・実使用量計算
+                // Mパティ
                 const mpCase = parseFloat(mpCaseInput.value) || 0;
                 const mpLoose = parseFloat(mpLooseInput.value) || 0;
-                const mpInventory = Math.floor(mpCase * 96 + mpLoose);
+                const mpCaseInventory = Math.floor(mpCase * 96);
+                const mpInventory = Math.floor(mpCaseInventory + mpLoose);
+                mpCaseInventorySpan.textContent = mpCaseInventory;
                 mpInventorySpan.textContent = mpInventory;
-
-                const zpCase = parseFloat(zpCaseInput.value) || 0;
-                const zpLoose = parseFloat(zpLooseInput.value) || 0;
-                const zpInventory = Math.floor(zpCase * 64 + zpLoose);
-                zpInventorySpan.textContent = zpInventory;
-
-                const rpCase = parseFloat(rpCaseInput.value) || 0;
-                const rpLoose = parseFloat(rpLooseInput.value) || 0;
-                const rpInventory = Math.floor(rpCase * 90 + rpLoose);
-                rpInventorySpan.textContent = rpInventory;
-                
-                const mbCase = parseFloat(mbCaseInput.value) || 0;
-                const mbBag = parseFloat(mbBagInput.value) || 0;
-                const mbLoose = parseFloat(mbLooseInput.value) || 0;
-                const mbInventory = Math.floor(mbCase * 24 + mbBag * 6 + mbLoose);
-                mbInventorySpan.textContent = mbInventory;
-                
-                const zbCase = parseFloat(zbCaseInput.value) || 0;
-                const zbBag = parseFloat(zbBagInput.value) || 0;
-                const zbLoose = parseFloat(zbLooseInput.value) || 0;
-                const zbInventory = Math.floor(zbCase * 24 + zbBag * 6 + zbLoose);
-                zbInventorySpan.textContent = zbInventory;
-                
-                const qbCase = parseFloat(qbCaseInput.value) || 0;
-                const qbLoose = parseFloat(qbLooseInput.value) || 0;
-                const qbInventory = Math.floor(qbCase * 12 + qbLoose);
-                qbInventorySpan.textContent = qbInventory;
-                
-                const mCase = parseFloat(mCaseInput.value) || 0;
-                const mLoose = parseFloat(mLooseInput.value) || 0;
-                const mInventory = Math.floor(mCase * 72 + mLoose);
-                mInventorySpan.textContent = mInventory;
-
-                // 実使用量計算
                 const mpPrev = parseFloat(mpPrevInput.value) || 0;
                 const mpArrival = parseFloat(mpArrivalInput.value) || 0;
                 const mpLoss = parseFloat(mpLossInput.value) || 0;
                 mpUsageSpan.textContent = Math.floor(mpPrev + mpArrival - mpInventory - mpLoss);
 
+                // Zパティ
+                const zpCase = parseFloat(zpCaseInput.value) || 0;
+                const zpLoose = parseFloat(zpLooseInput.value) || 0;
+                const zpCaseInventory = Math.floor(zpCase * 64);
+                const zpInventory = Math.floor(zpCaseInventory + zpLoose);
+                zpCaseInventorySpan.textContent = zpCaseInventory;
+                zpInventorySpan.textContent = zpInventory;
                 const zpPrev = parseFloat(zpPrevInput.value) || 0;
                 const zpArrival = parseFloat(zpArrivalInput.value) || 0;
                 const zpLoss = parseFloat(zpLossInput.value) || 0;
                 zpUsageSpan.textContent = Math.floor(zpPrev + zpArrival - zpInventory - zpLoss);
                 
+                // Rパティ
+                const rpCase = parseFloat(rpCaseInput.value) || 0;
+                const rpLoose = parseFloat(rpLooseInput.value) || 0;
+                const rpCaseInventory = Math.floor(rpCase * 90);
+                const rpInventory = Math.floor(rpCaseInventory + rpLoose);
+                rpCaseInventorySpan.textContent = rpCaseInventory;
+                rpInventorySpan.textContent = rpInventory;
                 const rpPrev = parseFloat(rpPrevInput.value) || 0;
                 const rpArrival = parseFloat(rpArrivalInput.value) || 0;
                 const rpLoss = parseFloat(rpLossInput.value) || 0;
                 rpUsageSpan.textContent = Math.floor(rpPrev + rpArrival - rpInventory - rpLoss);
-
+                
+                // Mバンズ
+                const mbCase = parseFloat(mbCaseInput.value) || 0;
+                const mbBag = parseFloat(mbBagInput.value) || 0;
+                const mbLoose = parseFloat(mbLooseInput.value) || 0;
+                const mbCaseInventory = Math.floor(mbCase * 24);
+                const mbInventory = Math.floor(mbCaseInventory + mbBag * 6 + mbLoose);
+                mbCaseInventorySpan.textContent = mbCaseInventory;
+                mbInventorySpan.textContent = mbInventory;
                 const mbPrev = parseFloat(mbPrevInput.value) || 0;
                 const mbArrival = parseFloat(mbArrivalInput.value) || 0;
                 const mbLoss = parseFloat(mbLossInput.value) || 0;
                 mbUsageSpan.textContent = Math.floor(mbPrev + mbArrival - mbInventory - mbLoss);
-                
+
+                // Zバンズ
+                const zbCase = parseFloat(zbCaseInput.value) || 0;
+                const zbBag = parseFloat(zbBagInput.value) || 0;
+                const zbLoose = parseFloat(zbLooseInput.value) || 0;
+                const zbCaseInventory = Math.floor(zbCase * 24);
+                const zbInventory = Math.floor(zbCaseInventory + zbBag * 6 + zbLoose);
+                zbCaseInventorySpan.textContent = zbCaseInventory;
+                zbInventorySpan.textContent = zbInventory;
                 const zbPrev = parseFloat(zbPrevInput.value) || 0;
                 const zbArrival = parseFloat(zbArrivalInput.value) || 0;
                 const zbLoss = parseFloat(zbLossInput.value) || 0;
                 zbUsageSpan.textContent = Math.floor(zbPrev + zbArrival - zbInventory - zbLoss);
-                
+
+                // クープバンズ
+                const qbBag = parseFloat(qbBagInput.value) || 0;
+                const qbLoose = parseFloat(qbLooseInput.value) || 0;
+                // クープバンズのケース在庫は袋数から計算
+                const qbCaseInventory = Math.floor(qbBag * 12);
+                const qbInventory = Math.floor(qbCaseInventory + qbLoose);
+                qbCaseInventorySpan.textContent = qbCaseInventory;
+                qbInventorySpan.textContent = qbInventory;
                 const qbPrev = parseFloat(qbPrevInput.value) || 0;
                 const qbArrival = parseFloat(qbArrivalInput.value) || 0;
                 const qbLoss = parseFloat(qbLossInput.value) || 0;
                 qbUsageSpan.textContent = Math.floor(qbPrev + qbArrival - qbInventory - qbLoss);
                 
+                // マフィンバンズ
+                const mCase = parseFloat(mCaseInput.value) || 0;
+                const mBag = parseFloat(mBagInput.value) || 0;
+                const mLoose = parseFloat(mLooseInput.value) || 0;
+                const mCaseInventory = Math.floor(mCase * 72);
+                const mInventory = Math.floor(mCaseInventory + mBag * 6 + mLoose);
+                mCaseInventorySpan.textContent = mCaseInventory;
+                mInventorySpan.textContent = mInventory;
                 const mPrev = parseFloat(mPrevInput.value) || 0;
                 const mArrival = parseFloat(mArrivalInput.value) || 0;
                 const mLoss = parseFloat(mLossInput.value) || 0;
