@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>営業指標計算ツール</title>
     <meta name="robots" content="noindex">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
@@ -33,28 +33,22 @@
     <div class="w-full max-w-4xl p-8 bg-white rounded-2xl shadow-xl space-y-8">
         <h1 class="text-3xl font-bold text-center text-gray-800">営業指標計算ツール</h1>
 
-        <!-- 営業指標セクション -->
         <div class="space-y-4">
             <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">営業指標</h2>
-            <!-- 入力フォーム -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Net売り上げ -->
                 <div class="flex flex-col space-y-1">
                     <label for="netSales" class="text-sm font-medium text-gray-700">Net売り上げ</label>
                     <input type="number" id="netSales" placeholder="例: 100000" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
                 </div>
-                <!-- 組数 -->
                 <div class="flex flex-col space-y-1">
                     <label for="customers" class="text-sm font-medium text-gray-700">組数</label>
                     <input type="number" id="customers" placeholder="例: 50" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
                 </div>
-                <!-- 労働時間数 -->
                 <div class="flex flex-col space-y-1">
                     <label for="workHours" class="text-sm font-medium text-gray-700">労働時間数</label>
                     <input type="number" id="workHours" placeholder="例: 8" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
                 </div>
             </div>
-            <!-- 出力フォーム -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
                 <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
                     <p class="text-sm font-medium text-gray-500">客単価</p>
@@ -71,7 +65,6 @@
             </div>
         </div>
 
-        <!-- 支払い方法セクション -->
         <div class="space-y-4">
             <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">支払い方法</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -104,11 +97,27 @@
             </div>
         </div>
 
-        <!-- 在庫・実使用量計算セクション -->
+        <div class="space-y-4">
+            <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">入出金</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div class="flex flex-col space-y-1">
+                    <label for="income" class="text-sm font-medium text-gray-700">入金</label>
+                    <input type="number" id="income" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="expenditure" class="text-sm font-medium text-gray-700">出金</label>
+                    <input type="number" id="expenditure" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg shadow-sm mt-4">
+                <p class="text-sm font-medium text-purple-700">入出金</p>
+                <p id="incomeExpenditure" class="text-2xl font-bold text-purple-900">-</p>
+            </div>
+        </div>
+        
         <div class="space-y-4">
             <h2 class="text-xl font-semibold text-gray-700 pb-2 border-b">在庫・実使用量計算</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Mパティ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">Mパティ</h3>
                     <div class="flex-grow space-y-2">
@@ -133,7 +142,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Zパティ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">Zパティ</h3>
                     <div class="flex-grow space-y-2">
@@ -158,7 +166,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Rパティ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">Rパティ</h3>
                     <div class="flex-grow space-y-2">
@@ -183,7 +190,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Mバンズ -->
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">Mバンズ</h3>
                     <div class="flex-grow space-y-2">
@@ -209,8 +215,7 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Zバンズ -->
-                <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
+                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">Zバンズ</h3>
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="zbCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
@@ -235,8 +240,7 @@
                         </div>
                     </div>
                 </div>
-                 <!-- クープバンズ -->
-                <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
+                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">クープバンズ</h3>
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">袋数: <input type="number" id="qbBag" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
@@ -260,8 +264,7 @@
                         </div>
                     </div>
                 </div>
-                 <!-- マフィンバンズ -->
-                <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
+                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 flex flex-col">
                     <h3 class="text-lg font-medium text-gray-700">マフィンバンズ</h3>
                     <div class="flex-grow space-y-2">
                         <label class="text-sm text-gray-700">ケース数: <input type="number" id="mCase" class="w-full rounded-md border-gray-300 shadow-sm p-1 text-sm"></label>
@@ -287,7 +290,6 @@
                     </div>
                 </div>
             </div>
-            <!-- 在庫合計使用量セクション -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-4 border-t">
                 <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
                     <p class="text-sm font-medium text-blue-700">バンズ合計使用量</p>
@@ -305,6 +307,7 @@
             const customersPerHourSpan = document.getElementById('customersPerHour');
             const subtotalPaymentSpan = document.getElementById('subtotalPayment');
             const totalSalesSpan = document.getElementById('totalSales');
+            const incomeExpenditureSpan = document.getElementById('incomeExpenditure');
             const mpCaseInventorySpan = document.getElementById('mpCaseInventory');
             const mpInventorySpan = document.getElementById('mpInventory');
             const mpUsageSpan = document.getElementById('mpUsage');
@@ -351,6 +354,12 @@
                 subtotalPaymentSpan.textContent = Math.floor(credit + eMoney + prepayment);
                 totalSalesSpan.textContent = Math.floor(cash + credit + eMoney + prepayment);
 
+                // 入出金計算
+                const income = parseFloat(document.getElementById('income').value) || 0;
+                const expenditure = parseFloat(document.getElementById('expenditure').value) || 0;
+                const incomeExpenditure = income - expenditure;
+                incomeExpenditureSpan.textContent = Math.floor(incomeExpenditure);
+                
                 // 在庫・実使用量計算
                 // Mパティ
                 const mpCase = parseFloat(document.getElementById('mpCase').value) || 0;
@@ -462,4 +471,3 @@
     </script>
 </body>
 </html>
-最終更新日　2025年8月19日
