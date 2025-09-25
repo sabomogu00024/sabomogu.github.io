@@ -102,6 +102,23 @@
                     <p id="totalSales" class="text-2xl font-bold text-indigo-900">-</p>
                 </div>
             </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="flex flex-col space-y-1">
+                    <label for="deposit" class="text-sm font-medium text-gray-700">入金</label>
+                    <input type="number" id="deposit" placeholder="例: 50000" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="withdrawal" class="text-sm font-medium text-gray-700">出金</label>
+                    <input type="number" id="withdrawal" placeholder="例: 15000" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                    <p class="text-sm font-medium text-gray-500">入出金</p>
+                    <p id="netDeposit" class="text-2xl font-bold text-gray-800">-</p>
+                </div>
+            </div>
         </div>
 
         <!-- 在庫・実使用量計算セクション -->
