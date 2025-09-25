@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -471,3 +470,4 @@
     </script>
 </body>
 </html>
+最終更新日　2025年9月25日
