@@ -103,20 +103,18 @@
                 </div>
             </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <div class="flex flex-col space-y-1">
-                    <label for="deposit" class="text-sm font-medium text-gray-700">入金</label>
-                    <input type="number" id="deposit" placeholder="例: 50000" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                <div>
+                    <label for="deposit" class="block text-sm font-medium text-gray-700">入金</label>
+                    <input type="number" id="deposit" placeholder="例: 5000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                 </div>
-                <div class="flex flex-col space-y-1">
-                    <label for="withdrawal" class="text-sm font-medium text-gray-700">出金</label>
-                    <input type="number" id="withdrawal" placeholder="例: 15000" class="w-full rounded-md border-gray-300 shadow-sm p-2 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <div>
+                    <label for="withdrawal" class="block text-sm font-medium text-gray-700">出金</label>
+                    <input type="number" id="withdrawal" placeholder="例: 2000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                 </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
-                    <p class="text-sm font-medium text-gray-500">入出金</p>
-                    <p id="netDeposit" class="text-2xl font-bold text-gray-800">-</p>
+                <div class="bg-yellow-100 p-4 rounded-lg shadow-sm">
+                    <p class="text-sm font-medium text-yellow-700">入出金:</p>
+                    <p id="depositWithdrawal" class="text-xl font-bold text-yellow-900">0</p>
                 </div>
             </div>
         </div>
