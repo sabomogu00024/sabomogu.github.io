@@ -102,7 +102,6 @@
                     <p id="totalSales" class="text-2xl font-bold text-indigo-900">-</p>
                 </div>
             </div>
-            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
                 <div>
                     <label for="deposit" class="block text-sm font-medium text-gray-700">入金</label>
